@@ -1,0 +1,40 @@
+---
+description: HealthPilot code quality — modularity, helpers, OOP, readability
+alwaysApply: true
+---
+
+# HealthPilot Code Quality
+
+Follow these rules for all code in this project.
+
+## File size and structure
+
+- **Never** put all major logic in a single large file.
+- **Segregate** code by responsibility: one main concern per file or module.
+- Split large modules into smaller ones (e.g. `utils/`, `helpers/`, feature-specific folders).
+
+## Helpers and reuse
+
+- Extract repeated logic into **helper functions** or **helper modules** (e.g. `*_helper.py`, `utils.py`).
+- Keep helpers focused and single-purpose so they are easy to read and test.
+
+## Readability and maintainability
+
+- Write code that is **easy to read and modify**.
+- Prefer clear names, short functions, and explicit control flow.
+- Add brief comments or docstrings where intent is not obvious.
+
+## OOP
+
+- Follow **OOP principles** where it fits: use classes for stateful or cohesive behavior, not one-off scripts.
+- Prefer small, focused classes; use composition over deep inheritance.
+- Keep data and behavior together when it improves clarity.
+
+## Summary
+
+| Do | Avoid |
+|----|--------|
+| Multiple small, focused files | One large file with everything |
+| Helper modules / functions | Inline or duplicated logic |
+| Clear names and structure | Cryptic or tangled code |
+| Classes for cohesive behavior | Only procedural code when OOP fits better |

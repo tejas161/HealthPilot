@@ -1,0 +1,16 @@
+[
+  {
+    "id": "tip_1",
+    "topic": "generic_medicines",
+    "content": "Ask your doctor if a generic substitute is available. Generics are usually much cheaper and equally effective for most conditions.",
+    "related_to_cost_saving": true,
+    "source": "HealthPilot"
+  },
+  {
+    "id": "tip_2",
+    "topic": "prescription",
+    "content": "Keep a copy of your prescription and lab reports. Reusing recent tests can avoid repeat costs when visiting a new doctor.",
+    "related_to_cost_saving": true,
+    "source": "HealthPilot"
+  }
+]

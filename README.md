@@ -18,6 +18,11 @@ HealthPilot/
 │   ├── tools.py        # Tools: get_health_tips, get_medicine_info (read from data/)
 │   ├── runner_helper.py # Run agent from Streamlit (Runner + InMemorySessionService)
 │   └── __init__.py
+├── guardrails/         # Safety: scope, disclaimers, output validation
+│   ├── constants.py    # Forbidden phrases, disclaimers, scope
+│   ├── checks.py       # validate_response(), contains_risky_content()
+│   ├── instructions.py # Guardrail text for agent system prompt
+│   └── __init__.py
 ├── data/
 │   ├── README.md       # Data format guidance
 │   ├── health_tips_sample.json
@@ -69,6 +74,17 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 
 - **Health tips**: Add or edit `data/health_tips.json` (see `data/health_tips_sample.json` for shape).
 - **Medicines**: Add `data/medicines.json` with fields like `name`, `generic_name`, `alternatives`, `price_range_inr`, etc., for the medicine lookup tool.
+
+## Guardrails (safety)
+
+HealthPilot is a **sensitive, health-related** product. Guardrails keep all user-facing information cautious and in-scope:
+
+- **Scope**: The agent is for cost-saving and general medicine-awareness only. It does not diagnose, prescribe, or give emergency advice.
+- **Agent instructions**: The agent’s system prompt includes strict rules (in `guardrails/instructions.py`): no diagnosis, no “you should take X”, no dosage advice; always direct users to doctors/pharmacists for personal decisions.
+- **Output validation**: Every agent response is checked in `guardrails/checks.py`. If risky phrases are detected (e.g. prescribing or diagnosing language), the response is replaced with a safe fallback message.
+- **Disclaimers**: Medicine-related answers are guided to include a short “consult your doctor/pharmacist” disclaimer.
+
+Do not remove or weaken guardrails without explicit product/legal review. To extend them, edit `guardrails/constants.py` (forbidden phrases, disclaimers) and `guardrails/instructions.py` (agent rules).
 
 ## Code quality
 

@@ -52,7 +52,14 @@ async def _run_agent_async(
             for part in event.content.parts:
                 if getattr(part, "text", None):
                     final_parts.append(part.text)
-    return "\n".join(final_parts) if final_parts else "I couldn't generate a response. Please try again."
+    raw_reply = "\n".join(final_parts) if final_parts else "I couldn't generate a response. Please try again."
+    # Guardrails: validate response and return safe fallback if risky content detected
+    try:
+        from guardrails.checks import validate_response
+        _, final_reply = validate_response(raw_reply)
+        return final_reply
+    except ImportError:
+        return raw_reply
 
 
 def run_agent(user_id: str, session_id: str, user_message: str, create_session: bool = False) -> str:

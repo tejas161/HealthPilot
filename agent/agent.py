@@ -6,6 +6,7 @@ from pathlib import Path
 from google.adk.agents import Agent
 
 from agent.tools import get_health_tips, get_medicine_info
+from guardrails.instructions import get_guardrail_instructions
 
 # Load .env from project root so GEMINI_MODEL (and GOOGLE_API_KEY) are set
 _env_path = Path(__file__).resolve().parent.parent / ".env"
@@ -31,8 +32,8 @@ root_agent = Agent(
         "You are HealthPilot, a helpful health advisor focused on reducing healthcare costs for users in India. "
         "Be clear, concise, and supportive. Use the get_health_tips tool when users ask for cost-saving tips, "
         "generic medicine advice, or prescription tips. Use get_medicine_info when users ask about a specific "
-        "medicine, its alternatives, or price. Always remind users to consult their doctor before changing "
-        "medications. Answer in the same language the user uses (e.g. Hindi, English)."
+        "medicine, its alternatives, or price. Answer in the same language the user uses (e.g. Hindi, English).\n\n"
+        + get_guardrail_instructions()
     ),
     tools=[get_health_tips, get_medicine_info],
 )

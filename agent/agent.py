@@ -5,6 +5,7 @@ from pathlib import Path
 
 from google.adk.agents import Agent
 
+from agent.generic_price_finder import find_generic_alternatives
 from agent.prescription_decoder import decode_prescription
 from agent.tools import get_health_tips, get_medicine_info
 from guardrails.instructions import get_guardrail_instructions
@@ -37,8 +38,12 @@ root_agent = Agent(
         "Use decode_prescription when the user shares a prescription (pasted text or says they have uploaded one): "
         "it explains each medicine (brand + generic), what it treats, dosage meaning (OD, BD, TDS, etc.), "
         "side effects, precautions, and injection purpose. Only explain — never recommend changing or stopping any medicine. "
+        "Use find_generic_alternatives when the user asks for cheaper options, generic alternatives, price comparison, "
+        "whether something is overpriced, or Jan Aushadhi. It returns active ingredient, cheaper generics, price differences, "
+        "overpricing flag (if they share the price they paid), and Jan Aushadhi link. Inform only — do not tell them to switch; "
+        "direct them to discuss with doctor or pharmacist. "
         "Answer in the same language the user uses (e.g. Hindi, English).\n\n"
         + get_guardrail_instructions()
     ),
-    tools=[get_health_tips, get_medicine_info, decode_prescription],
+    tools=[get_health_tips, get_medicine_info, decode_prescription, find_generic_alternatives],
 )

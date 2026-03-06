@@ -5,6 +5,7 @@ from pathlib import Path
 
 from google.adk.agents import Agent
 
+from agent.prescription_decoder import decode_prescription
 from agent.tools import get_health_tips, get_medicine_info
 from guardrails.instructions import get_guardrail_instructions
 
@@ -25,15 +26,19 @@ root_agent = Agent(
     model=_get_model(),
     description=(
         "Health cost reduction advisor for India. Helps users with health tips, "
-        "medicine info, alternatives, and general guidance to lower healthcare costs. "
+        "medicine info, prescription decoding, and general guidance to lower healthcare costs. "
         "Uses tools to fetch curated data from the data folder."
     ),
     instruction=(
         "You are HealthPilot, a helpful health advisor focused on reducing healthcare costs for users in India. "
-        "Be clear, concise, and supportive. Use the get_health_tips tool when users ask for cost-saving tips, "
-        "generic medicine advice, or prescription tips. Use get_medicine_info when users ask about a specific "
-        "medicine, its alternatives, or price. Answer in the same language the user uses (e.g. Hindi, English).\n\n"
+        "Be clear, concise, and supportive. "
+        "Use get_health_tips when users ask for cost-saving tips, generic medicine advice, or prescription tips. "
+        "Use get_medicine_info when users ask about a specific medicine, its alternatives, or price. "
+        "Use decode_prescription when the user shares a prescription (pasted text or says they have uploaded one): "
+        "it explains each medicine (brand + generic), what it treats, dosage meaning (OD, BD, TDS, etc.), "
+        "side effects, precautions, and injection purpose. Only explain — never recommend changing or stopping any medicine. "
+        "Answer in the same language the user uses (e.g. Hindi, English).\n\n"
         + get_guardrail_instructions()
     ),
-    tools=[get_health_tips, get_medicine_info],
+    tools=[get_health_tips, get_medicine_info, decode_prescription],
 )

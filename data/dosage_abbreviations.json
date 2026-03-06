@@ -1,0 +1,23 @@
+{
+  "OD": "Once daily (one time per day)",
+  "BD": "Twice daily (two times per day)",
+  "TDS": "Three times daily (three times per day)",
+  "QID": "Four times daily (four times per day)",
+  "HS": "At bedtime (before sleep)",
+  "SOS": "When required / as needed",
+  "PRN": "When necessary / as needed",
+  "AC": "Before food",
+  "PC": "After food",
+  "STAT": "Immediately (one time)",
+  "OW": "Once a week",
+  "BT": "Twice daily",
+  "TT": "Three times daily",
+  "QOD": "Every other day",
+  "EOD": "Every other day",
+  "NOCTE": "At night",
+  "MANE": "In the morning",
+  "1-0-1": "Once in morning, once at night",
+  "1-1-1": "Once in morning, once at noon, once at night",
+  "0-0-1": "Once at night only",
+  "1-0-0": "Once in morning only"
+}

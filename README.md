@@ -14,10 +14,15 @@ HealthPilot is an AI-powered health advisor focused on **reducing healthcare cos
 HealthPilot/
 ├── app.py              # Streamlit chat UI
 ├── agent/
-│   ├── agent.py        # ADK agent definition (HealthPilot)
-│   ├── tools.py        # Tools: get_health_tips, get_medicine_info (read from data/)
-│   ├── runner_helper.py # Run agent from Streamlit (Runner + InMemorySessionService)
+│   ├── agent.py           # ADK agent definition (HealthPilot)
+│   ├── tools.py           # get_health_tips, get_medicine_info
+│   ├── prescription_decoder.py  # Prescription decoder & medicine explainer tool
+│   ├── runner_helper.py   # Run agent from Streamlit (Runner + InMemorySessionService)
 │   └── __init__.py
+├── utils/
+│   └── ocr.py            # OCR helper for prescription images (Tesseract)
+├── ui/
+│   └── prescription_section.py  # Streamlit UI: paste/upload prescription
 ├── guardrails/         # Safety: scope, disclaimers, output validation
 │   ├── constants.py    # Forbidden phrases, disclaimers, scope
 │   ├── checks.py       # validate_response(), contains_risky_content()
@@ -25,6 +30,8 @@ HealthPilot/
 │   └── __init__.py
 ├── data/
 │   ├── README.md       # Data format guidance
+│   ├── dosage_abbreviations.json  # OD, BD, TDS, etc.
+│   ├── drug_reference.json       # For prescription decoder (treats, side effects, etc.)
 │   ├── health_tips_sample.json
 │   └── (your JSON/CSV files)
 ├── .env                # GOOGLE_API_KEY (copy from .env.example)
@@ -58,6 +65,10 @@ HealthPilot/
 4. **Add data (optional)**
 
    - Put health tips, medicine lists, etc. in `data/` (see `data/README.md`).
+
+5. **Prescription image OCR (optional)**
+
+   - For decoding prescriptions from photos, install [Tesseract](https://github.com/tesseract-ocr/tesseract) on your system (e.g. `brew install tesseract` on macOS). Python deps (Pillow, pytesseract) are in `requirements.txt`.
    - The agent uses `health_tips_sample.json` (and `health_tips.json`, `medicines.json`) via its tools.
 
 ## Run
@@ -69,6 +80,10 @@ streamlit run app.py
 ```
 
 Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with HealthPilot.
+
+## Tools (agent)
+
+- **Prescription Decoder & Medicine Explainer**: User pastes or uploads a prescription; the agent explains each medicine (brand + generic), what it treats, dosage meaning (OD, BD, TDS, etc.), side effects, precautions, and injection purpose. Data: `data/dosage_abbreviations.json`, `data/drug_reference.json`. Optional OCR for images via Tesseract (see `utils/ocr.py`).
 
 ## Data
 

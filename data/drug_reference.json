@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Paracetamol",
+    "generic_name": "Paracetamol / Acetaminophen",
+    "treats": "Fever, mild to moderate pain (headache, body ache, cold)",
+    "dosage_notes": "Common strength 500mg. OD/BD/TDS as prescribed.",
+    "side_effects": "Usually minimal; rarely allergic reactions, liver issues if overdose",
+    "precautions": "Do not exceed recommended dose. Avoid with other paracetamol-containing medicines. Consult doctor in liver disease.",
+    "injection_purpose": null
+  },
+  {
+    "name": "Amoxicillin",
+    "generic_name": "Amoxicillin",
+    "treats": "Bacterial infections (ear, throat, chest, urinary tract)",
+    "dosage_notes": "Usually 250mg or 500mg. TDS or as prescribed. Complete full course.",
+    "side_effects": "Nausea, diarrhoea, rash, allergic reactions in some",
+    "precautions": "Complete full course. Inform doctor if allergic to penicillin. Not for viral infections.",
+    "injection_purpose": null
+  },
+  {
+    "name": "Cetirizine",
+    "generic_name": "Cetirizine",
+    "treats": "Allergies, itching, urticaria, allergic rhinitis",
+    "dosage_notes": "Usually 10mg OD (once daily), often at night",
+    "side_effects": "Drowsiness in some, dry mouth, headache",
+    "precautions": "May cause drowsiness; avoid driving if affected. Consult if pregnant or breastfeeding.",
+    "injection_purpose": null
+  },
+  {
+    "name": "Omeprazole",
+    "generic_name": "Omeprazole",
+    "treats": "Acidity, heartburn, GERD, stomach ulcer",
+    "dosage_notes": "Usually 20mg OD or BD, typically before breakfast",
+    "side_effects": "Headache, nausea, abdominal pain in some",
+    "precautions": "Take before food as advised. Long-term use only under doctor supervision.",
+    "injection_purpose": null
+  },
+  {
+    "name": "Pantoprazole",
+    "generic_name": "Pantoprazole",
+    "treats": "Acidity, heartburn, GERD, stomach ulcer",
+    "dosage_notes": "Usually 40mg OD before breakfast or as prescribed",
+    "side_effects": "Headache, diarrhoea, nausea in some",
+    "precautions": "Take before food. Inform doctor if on long-term use.",
+    "injection_purpose": "IV form used in hospital for severe acidity or when oral not possible"
+  },
+  {
+    "name": "Dolo 650",
+    "generic_name": "Paracetamol",
+    "treats": "Fever, mild to moderate pain",
+    "dosage_notes": "650mg tablet. OD/BD/TDS as prescribed.",
+    "side_effects": "Usually minimal; rarely allergic reactions, liver issues if overdose",
+    "precautions": "Do not exceed recommended dose. Same as Paracetamol.",
+    "injection_purpose": null
+  },
+  {
+    "name": "Crocin",
+    "generic_name": "Paracetamol",
+    "treats": "Fever, mild to moderate pain",
+    "dosage_notes": "Various strengths (500mg, 650mg). As prescribed.",
+    "side_effects": "Usually minimal; rarely allergic reactions",
+    "precautions": "Do not exceed recommended dose. Same as Paracetamol.",
+    "injection_purpose": null
+  }
+]

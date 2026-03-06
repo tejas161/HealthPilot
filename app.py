@@ -95,6 +95,16 @@ def main() -> None:
         st.rerun()
     render_chat()
 
+    # Prescription decoder: paste or upload image, then decode
+    try:
+        from ui.prescription_section import render_prescription_section
+        prescription_message = render_prescription_section(handle_new_message)
+        if prescription_message:
+            handle_new_message(prescription_message)
+            st.rerun()
+    except ImportError:
+        pass
+
     if prompt := st.chat_input("Ask about health tips, medicines, or cost-saving..."):
         handle_new_message(prompt)
         st.rerun()

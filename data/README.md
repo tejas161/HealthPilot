@@ -14,6 +14,7 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 | **Generic Alternative & Price Transparency Finder** | Detects active ingredient, suggests cheaper generics, shows price differences, flags overpricing (if user shares price), links Jan Aushadhi. | `medicine_price_reference.json` |
 | **Drug Interaction & Safety Checker** | User enters “I am taking X and Y. Safe?” — checks interaction severity, contraindications, allergy warnings, age restrictions, pregnancy safety. | `drug_interactions.json`, `drug_safety.json` (uses `medicine_price_reference.json` for brand→ingredient) |
 | **Hospital Finder + Treatment Cost Estimator** | **A) Hospital Locator:** filter by disease, government/private, city, specialization. **B) Treatment Cost Estimator:** cost ranges only (consultation, diagnostics, medicines, admission) with disclaimer; never exact cost. | `hospitals.json`, `treatment_cost_ranges.json` |
+| **Disease Guide & Early Prevention Advisor** | User asks e.g. “Tell me about diabetes” — provides what it is, early symptoms, risk factors, preventive lifestyle, when to see doctor. Education only; never diagnose. | `disease_guides.json` |
 | **Health tips** | Returns cost-saving tips (generic medicines, prescription reuse, etc.). | `health_tips_sample.json`, `health_tips.json` |
 | **Medicine info** | Lookup by name: basic medicine info, alternatives, price range. | `medicines.json` |
 
@@ -34,6 +35,7 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 | Drug safety (contraindications, allergy, age, pregnancy) | JSON | `drug_safety.json` |
 | Hospitals (locator: city, type, specialization, disease, PMJAY) | JSON | `hospitals.json` |
 | Treatment cost ranges (consultation, diagnostics, medicines, admission) | JSON | `treatment_cost_ranges.json` |
+| Disease guides (symptoms, risk, prevention, when to see doctor) | JSON | `disease_guides.json` |
 
 ## India-specific
 
@@ -52,5 +54,6 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 - **drug_safety.json** (Drug Interaction & Safety Checker): per-ingredient `ingredient`, `contraindications` (array), `allergy_warning`, `age_restrictions`, `pregnancy_safety`. One entry per active ingredient.
 - **hospitals.json** (Hospital Locator): `name`, `city`, `state`, `type` (government/private), `specializations` (array), `diseases_handled` (array), `pmjay_empaneled`, `address`. Can align with government/PMJAY datasets.
 - **treatment_cost_ranges.json** (Treatment Cost Estimator): `disease_or_category`, `hospital_type`, `city_tier`, `*_min_inr` / `*_max_inr` for consultation, diagnostics, medicines, admission; `notes`. Always ranges only; add disclaimer in tool.
+- **disease_guides.json** (Disease Guide & Early Prevention Advisor): `name`, `aliases` (array), `what_it_is`, `early_symptoms` (array), `risk_factors` (array), `preventive_lifestyle` (array), `when_to_see_doctor`, `source_notes`. Can align with WHO/gov health portal; education only.
 
 When you add a new tool, add a row in **Tools and their data** and a schema line here. Add your own files and extend schemas as the product grows.

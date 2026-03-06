@@ -5,6 +5,7 @@ from pathlib import Path
 
 from google.adk.agents import Agent
 
+from agent.disease_guide_tool import get_disease_guide
 from agent.drug_safety_checker import check_drug_interaction_and_safety
 from agent.generic_price_finder import find_generic_alternatives
 from agent.hospital_cost_tool import find_hospitals, get_treatment_cost_estimate
@@ -22,7 +23,7 @@ if _env_path.exists():
         pass
 
 def _get_model() -> str:
-    return os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
+    return os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 root_agent = Agent(
     name="healthpilot_agent",
@@ -50,6 +51,8 @@ root_agent = Agent(
         "Use find_hospitals when the user asks for hospitals by disease, city, government vs private, or specialization. "
         "Use get_treatment_cost_estimate when the user asks for treatment cost, hospital cost, or cost range for a condition; "
         "always give ranges only with disclaimer — never exact cost. "
+        "Use get_disease_guide when the user asks about a disease or condition (e.g. 'Tell me about diabetes', 'What is hypertension?'). "
+        "It returns what it is, early symptoms, risk factors, preventive lifestyle, and when to see a doctor. Education and prevention only — never diagnose; always direct to see a doctor for diagnosis. "
         "Answer in the same language the user uses (e.g. Hindi, English).\n\n"
         + get_guardrail_instructions()
     ),
@@ -61,5 +64,6 @@ root_agent = Agent(
         check_drug_interaction_and_safety,
         find_hospitals,
         get_treatment_cost_estimate,
+        get_disease_guide,
     ],
 )

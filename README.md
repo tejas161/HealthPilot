@@ -20,6 +20,7 @@ HealthPilot/
 │   ├── generic_price_finder.py # Generic alternatives & price transparency (Jan Aushadhi)
 │   ├── drug_safety_checker.py   # Drug interaction & safety (contraindications, allergy, age, pregnancy)
 │   ├── hospital_cost_tool.py    # Hospital Locator + Treatment Cost Estimator (ranges only)
+│   ├── disease_guide_tool.py    # Disease guide & early prevention (symptoms, risk, when to see doctor)
 │   ├── runner_helper.py   # Run agent from Streamlit (Runner + InMemorySessionService)
 │   └── __init__.py
 ├── utils/
@@ -40,6 +41,7 @@ HealthPilot/
 │   ├── drug_safety.json        # Contraindications, allergy, age, pregnancy per ingredient
 │   ├── hospitals.json         # Hospital locator (city, type, specialization, PMJAY)
 │   ├── treatment_cost_ranges.json  # Cost ranges: consultation, diagnostics, medicines, admission
+│   ├── disease_guides.json   # Disease guide: what it is, symptoms, risk, prevention, when to see doctor
 │   ├── health_tips_sample.json
 │   └── (your JSON/CSV files)
 ├── .env                # GOOGLE_API_KEY (copy from .env.example)
@@ -98,6 +100,8 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 
 - **Hospital Finder + Treatment Cost Estimator** (two sub-modules): **A) Hospital Locator** — filter by disease, government/private, city, specialization; **B) Treatment Cost Estimator** — cost ranges only (consultation, diagnostics, medicines, admission) with disclaimer; never exact cost. Data: `data/hospitals.json`, `data/treatment_cost_ranges.json`. Tools: `find_hospitals(disease, city, hospital_type, specialization)`, `get_treatment_cost_estimate(disease_or_procedure, city, hospital_type)`.
 
+- **Disease Guide & Early Prevention Advisor**: User asks e.g. “Tell me about diabetes” — agent provides what it is, early symptoms, risk factors, preventive lifestyle, when to see doctor. Education and prevention only; never diagnose. Data: `data/disease_guides.json`. Tool: `get_disease_guide(disease_name)`.
+
 ## Data
 
 - **Health tips**: Add or edit `data/health_tips.json` (see `data/health_tips_sample.json` for shape).
@@ -107,6 +111,7 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 - **Drug safety**: `data/drug_safety.json` — per ingredient: `contraindications`, `allergy_warning`, `age_restrictions`, `pregnancy_safety` (for interaction & safety checker).
 - **Hospitals**: `data/hospitals.json` — `name`, `city`, `state`, `type` (government/private), `specializations`, `diseases_handled`, `pmjay_empaneled` (for Hospital Locator). Can align with government/PMJAY datasets.
 - **Treatment cost ranges**: `data/treatment_cost_ranges.json` — ranges for consultation, diagnostics, medicines, admission by `disease_or_category`, `hospital_type`, `city_tier`. Never give exact cost — tool returns ranges with disclaimer.
+- **Disease guides**: `data/disease_guides.json` — `name`, `aliases`, `what_it_is`, `early_symptoms`, `risk_factors`, `preventive_lifestyle`, `when_to_see_doctor`. Can align with WHO/gov health portal; for education and early prevention only.
 
 ## Guardrails (safety)
 

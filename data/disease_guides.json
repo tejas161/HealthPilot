@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Diabetes",
+    "aliases": ["sugar", "blood sugar", "diabetes mellitus", "type 2 diabetes", "type 1 diabetes"],
+    "what_it_is": "Diabetes is a condition where blood sugar (glucose) stays too high. Type 2 is common in adults and often linked to lifestyle; Type 1 usually starts in childhood. Good control reduces complications and healthcare costs.",
+    "early_symptoms": [
+      "Increased thirst and urination",
+      "Feeling very tired",
+      "Blurred vision",
+      "Slow-healing cuts or infections",
+      "Unexpected weight loss (especially in Type 1)"
+    ],
+    "risk_factors": [
+      "Overweight or obesity",
+      "Family history of diabetes",
+      "Physical inactivity",
+      "Unhealthy diet (high sugar, refined carbs)",
+      "Age over 45",
+      "High blood pressure or cholesterol"
+    ],
+    "preventive_lifestyle": [
+      "Maintain a healthy weight",
+      "Regular physical activity (e.g. 150 min/week moderate exercise)",
+      "Eat more whole grains, vegetables, and fibre; limit sugary and highly processed foods",
+      "Get enough sleep and manage stress",
+      "Avoid smoking; limit alcohol"
+    ],
+    "when_to_see_doctor": "See a doctor if you have persistent thirst, frequent urination, unexplained tiredness, or blurred vision. Get regular blood sugar checks if you have risk factors. Early detection helps prevent complications.",
+    "source_notes": "Align with WHO and national guidelines; for education only, not diagnosis."
+  },
+  {
+    "name": "Hypertension",
+    "aliases": ["high blood pressure", "BP", "blood pressure"],
+    "what_it_is": "Hypertension means your blood pressure is consistently too high. It often has no obvious symptoms but increases risk of heart disease, stroke, and kidney problems. Managing it early reduces long-term cost and harm.",
+    "early_symptoms": [
+      "Often no symptoms until later",
+      "Sometimes headache, dizziness, or nosebleeds",
+      "Shortness of breath in severe cases"
+    ],
+    "risk_factors": [
+      "Family history of high BP",
+      "High salt intake",
+      "Overweight, lack of exercise",
+      "Stress, smoking, alcohol",
+      "Age (risk increases with age)"
+    ],
+    "preventive_lifestyle": [
+      "Reduce salt intake",
+      "Eat more fruits, vegetables, and low-fat dairy",
+      "Regular physical activity",
+      "Maintain healthy weight; avoid smoking and excess alcohol",
+      "Manage stress; get enough sleep"
+    ],
+    "when_to_see_doctor": "Get your blood pressure checked regularly (at least once a year if normal). See a doctor if readings are repeatedly high (e.g. 140/90 or above) or if you have headaches, dizziness, or chest discomfort.",
+    "source_notes": "WHO and national BP guidelines; education only."
+  },
+  {
+    "name": "Heart disease",
+    "aliases": ["heart disease", "cardiac", "cardiovascular", "CVD", "coronary"],
+    "what_it_is": "Heart (cardiovascular) disease includes conditions that affect the heart and blood vessels, such as coronary artery disease. Early prevention through lifestyle and risk control can reduce the need for expensive treatments later.",
+    "early_symptoms": [
+      "Chest pain or discomfort (angina)",
+      "Shortness of breath, especially on exertion",
+      "Fatigue, palpitations",
+      "Swelling in legs or feet in some cases"
+    ],
+    "risk_factors": [
+      "High BP, diabetes, high cholesterol",
+      "Smoking, unhealthy diet, lack of exercise",
+      "Overweight, stress",
+      "Family history of heart disease",
+      "Age (men over 45, women over 55)"
+    ],
+    "preventive_lifestyle": [
+      "Quit smoking; avoid second-hand smoke",
+      "Eat a heart-friendly diet (less salt, saturated fat; more vegetables, whole grains)",
+      "Regular physical activity",
+      "Control BP, blood sugar, and cholesterol with doctor's guidance",
+      "Manage stress and maintain healthy weight"
+    ],
+    "when_to_see_doctor": "See a doctor if you have chest pain, unexplained shortness of breath, or palpitations. Get regular check-ups if you have risk factors. In an emergency (severe chest pain, difficulty breathing), seek immediate care.",
+    "source_notes": "WHO cardiovascular guidelines; education only."
+  },
+  {
+    "name": "Respiratory infections",
+    "aliases": ["cold", "cough", "flu", "respiratory infection", "bronchitis", "common cold"],
+    "what_it_is": "Respiratory infections affect the nose, throat, and sometimes lungs. Most colds and mild flu get better on their own. Knowing when to rest and when to see a doctor helps avoid unnecessary tests and medicines.",
+    "early_symptoms": [
+      "Runny or stuffy nose, sore throat",
+      "Cough, mild fever",
+      "Tiredness, body ache",
+      "In flu: higher fever, chills, more severe body ache"
+    ],
+    "risk_factors": [
+      "Close contact with infected people",
+      "Weakened immunity, chronic lung disease",
+      "Smoking or pollution exposure",
+      "Seasonal (e.g. winter flu)"
+    ],
+    "preventive_lifestyle": [
+      "Hand washing; avoid touching face with unwashed hands",
+      "Cover mouth when coughing or sneezing",
+      "Stay away from sick people when possible",
+      "Flu vaccine if recommended by doctor",
+      "Good sleep, balanced diet, hydration"
+    ],
+    "when_to_see_doctor": "See a doctor if fever is high or lasting more than 3 days, breathing is difficult, or you have severe throat pain or prolonged cough. Children and elderly with symptoms should be evaluated sooner.",
+    "source_notes": "General health education; not a substitute for medical advice."
+  },
+  {
+    "name": "Thyroid disorders",
+    "aliases": ["thyroid", "hypothyroidism", "hyperthyroidism", "underactive thyroid", "overactive thyroid"],
+    "what_it_is": "The thyroid gland controls metabolism. Underactive (hypothyroidism) or overactive (hyperthyroidism) thyroid can cause fatigue, weight changes, and other symptoms. Simple blood tests and treatment can manage it effectively.",
+    "early_symptoms": [
+      "Hypothyroidism: tiredness, weight gain, feeling cold, dry skin, constipation",
+      "Hyperthyroidism: weight loss, nervousness, fast heartbeat, sweating, heat intolerance"
+    ],
+    "risk_factors": [
+      "Family history of thyroid disease",
+      "Iodine deficiency (hypothyroidism) or excess",
+      "Autoimmune conditions",
+      "Female gender; age over 60"
+    ],
+    "preventive_lifestyle": [
+      "Adequate iodine in diet (use iodised salt as advised)",
+      "Regular check-ups if family history or symptoms",
+      "Avoid self-medicating with thyroid medicines; get proper diagnosis"
+    ],
+    "when_to_see_doctor": "See a doctor if you have persistent fatigue, unexplained weight change, feeling too cold or too hot, or palpitations. A simple blood test (TSH) can screen for thyroid problems.",
+    "source_notes": "General education; diagnosis and treatment by doctor."
+  }
+]

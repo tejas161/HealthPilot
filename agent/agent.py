@@ -5,6 +5,7 @@ from pathlib import Path
 
 from google.adk.agents import Agent
 
+from agent.drug_safety_checker import check_drug_interaction_and_safety
 from agent.generic_price_finder import find_generic_alternatives
 from agent.prescription_decoder import decode_prescription
 from agent.tools import get_health_tips, get_medicine_info
@@ -42,8 +43,11 @@ root_agent = Agent(
         "whether something is overpriced, or Jan Aushadhi. It returns active ingredient, cheaper generics, price differences, "
         "overpricing flag (if they share the price they paid), and Jan Aushadhi link. Inform only — do not tell them to switch; "
         "direct them to discuss with doctor or pharmacist. "
+        "Use check_drug_interaction_and_safety when the user says they are taking multiple medicines and asks if it's safe, "
+        "or asks about interactions, contraindications, allergy warnings, age restrictions, or pregnancy safety. "
+        "Pass the medicine list as a comma- or 'and'-separated string. Inform only — always tell them to discuss with doctor or pharmacist. "
         "Answer in the same language the user uses (e.g. Hindi, English).\n\n"
         + get_guardrail_instructions()
     ),
-    tools=[get_health_tips, get_medicine_info, decode_prescription, find_generic_alternatives],
+    tools=[get_health_tips, get_medicine_info, decode_prescription, find_generic_alternatives, check_drug_interaction_and_safety],
 )

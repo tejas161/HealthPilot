@@ -1,0 +1,112 @@
+[
+  {
+    "brand_names": ["Crocin", "Dolo 650", "Metacin", "Pacimol"],
+    "active_ingredient": "Paracetamol",
+    "strength_common": "500mg / 650mg",
+    "generic_alternatives": [
+      { "name": "Paracetamol 500mg (generic)", "typical_price_inr": 2, "source": "market" },
+      { "name": "Paracetamol 650mg (generic)", "typical_price_inr": 3, "source": "market" }
+    ],
+    "ceiling_price_inr": 3.5,
+    "nppa_notes": "NPPA ceiling for common strengths",
+    "jan_aushadhi": {
+      "available": true,
+      "product_name": "Paracetamol 500mg",
+      "typical_price_inr": 2,
+      "portal_url": "https://janaushadhi.gov.in/ProductList.aspx"
+    }
+  },
+  {
+    "brand_names": ["Amoxil", "Moxikind", "Wymox"],
+    "active_ingredient": "Amoxicillin",
+    "strength_common": "250mg / 500mg",
+    "generic_alternatives": [
+      { "name": "Amoxicillin 250mg (generic)", "typical_price_inr": 15, "source": "market" },
+      { "name": "Amoxicillin 500mg (generic)", "typical_price_inr": 25, "source": "market" }
+    ],
+    "ceiling_price_inr": 35,
+    "jan_aushadhi": {
+      "available": true,
+      "product_name": "Amoxicillin 250mg Cap",
+      "typical_price_inr": 12,
+      "portal_url": "https://janaushadhi.gov.in/ProductList.aspx"
+    }
+  },
+  {
+    "brand_names": ["Zyrtec", "Alerid", "Cetrizine"],
+    "active_ingredient": "Cetirizine",
+    "strength_common": "10mg",
+    "generic_alternatives": [
+      { "name": "Cetirizine 10mg (generic)", "typical_price_inr": 3, "source": "market" }
+    ],
+    "ceiling_price_inr": 5,
+    "jan_aushadhi": {
+      "available": true,
+      "product_name": "Cetirizine 10mg",
+      "typical_price_inr": 2,
+      "portal_url": "https://janaushadhi.gov.in/ProductList.aspx"
+    }
+  },
+  {
+    "brand_names": ["Omez", "Omepral", "Prilosec"],
+    "active_ingredient": "Omeprazole",
+    "strength_common": "20mg",
+    "generic_alternatives": [
+      { "name": "Omeprazole 20mg (generic)", "typical_price_inr": 5, "source": "market" }
+    ],
+    "ceiling_price_inr": 8,
+    "jan_aushadhi": {
+      "available": true,
+      "product_name": "Omeprazole 20mg Cap",
+      "typical_price_inr": 4,
+      "portal_url": "https://janaushadhi.gov.in/ProductList.aspx"
+    }
+  },
+  {
+    "brand_names": ["Pantocid", "Pantodac", "Pan"],
+    "active_ingredient": "Pantoprazole",
+    "strength_common": "40mg",
+    "generic_alternatives": [
+      { "name": "Pantoprazole 40mg (generic)", "typical_price_inr": 8, "source": "market" }
+    ],
+    "ceiling_price_inr": 12,
+    "jan_aushadhi": {
+      "available": true,
+      "product_name": "Pantoprazole 40mg",
+      "typical_price_inr": 6,
+      "portal_url": "https://janaushadhi.gov.in/ProductList.aspx"
+    }
+  },
+  {
+    "brand_names": ["Azithral", "Zithromax", "Azee"],
+    "active_ingredient": "Azithromycin",
+    "strength_common": "250mg / 500mg",
+    "generic_alternatives": [
+      { "name": "Azithromycin 250mg (generic)", "typical_price_inr": 25, "source": "market" },
+      { "name": "Azithromycin 500mg (generic)", "typical_price_inr": 40, "source": "market" }
+    ],
+    "ceiling_price_inr": 50,
+    "jan_aushadhi": {
+      "available": true,
+      "product_name": "Azithromycin 500mg",
+      "typical_price_inr": 25,
+      "portal_url": "https://janaushadhi.gov.in/ProductList.aspx"
+    }
+  },
+  {
+    "brand_names": ["Lipitor", "Atorva", "Storvas"],
+    "active_ingredient": "Atorvastatin",
+    "strength_common": "10mg / 20mg",
+    "generic_alternatives": [
+      { "name": "Atorvastatin 10mg (generic)", "typical_price_inr": 8, "source": "market" },
+      { "name": "Atorvastatin 20mg (generic)", "typical_price_inr": 15, "source": "market" }
+    ],
+    "ceiling_price_inr": 22,
+    "jan_aushadhi": {
+      "available": true,
+      "product_name": "Atorvastatin 10mg",
+      "typical_price_inr": 6,
+      "portal_url": "https://janaushadhi.gov.in/ProductList.aspx"
+    }
+  }
+]

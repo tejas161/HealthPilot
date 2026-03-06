@@ -17,6 +17,7 @@ HealthPilot/
 │   ├── agent.py           # ADK agent definition (HealthPilot)
 │   ├── tools.py           # get_health_tips, get_medicine_info
 │   ├── prescription_decoder.py  # Prescription decoder & medicine explainer tool
+│   ├── generic_price_finder.py # Generic alternatives & price transparency (Jan Aushadhi)
 │   ├── runner_helper.py   # Run agent from Streamlit (Runner + InMemorySessionService)
 │   └── __init__.py
 ├── utils/
@@ -32,6 +33,7 @@ HealthPilot/
 │   ├── README.md       # Data format guidance
 │   ├── dosage_abbreviations.json  # OD, BD, TDS, etc.
 │   ├── drug_reference.json       # For prescription decoder (treats, side effects, etc.)
+│   ├── medicine_price_reference.json  # Generic alternatives, ceiling prices, Jan Aushadhi
 │   ├── health_tips_sample.json
 │   └── (your JSON/CSV files)
 ├── .env                # GOOGLE_API_KEY (copy from .env.example)
@@ -69,7 +71,6 @@ HealthPilot/
 5. **Prescription image OCR (optional)**
 
    - For decoding prescriptions from photos, install [Tesseract](https://github.com/tesseract-ocr/tesseract) on your system (e.g. `brew install tesseract` on macOS). Python deps (Pillow, pytesseract) are in `requirements.txt`.
-   - The agent uses `health_tips_sample.json` (and `health_tips.json`, `medicines.json`) via its tools.
 
 ## Run
 
@@ -85,10 +86,13 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 
 - **Prescription Decoder & Medicine Explainer**: User pastes or uploads a prescription; the agent explains each medicine (brand + generic), what it treats, dosage meaning (OD, BD, TDS, etc.), side effects, precautions, and injection purpose. Data: `data/dosage_abbreviations.json`, `data/drug_reference.json`. Optional OCR for images via Tesseract (see `utils/ocr.py`).
 
+- **Generic Alternative & Price Transparency Finder**: Detects active ingredient from brand/generic name, suggests cheaper generics, shows price differences, flags overpricing (if user shares the price they paid vs ceiling/typical), and links Jan Aushadhi (PMBJP). Data: `data/medicine_price_reference.json`. Tool: `find_generic_alternatives(medicine_name, user_price_inr=None)`.
+
 ## Data
 
 - **Health tips**: Add or edit `data/health_tips.json` (see `data/health_tips_sample.json` for shape).
 - **Medicines**: Add `data/medicines.json` with fields like `name`, `generic_name`, `alternatives`, `price_range_inr`, etc., for the medicine lookup tool.
+- **Price transparency**: `data/medicine_price_reference.json` — `brand_names`, `active_ingredient`, `generic_alternatives`, `ceiling_price_inr`, `jan_aushadhi` (for generic/price finder tool). You can align ceiling with NPPA data when available.
 
 ## Guardrails (safety)
 

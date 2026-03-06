@@ -12,6 +12,7 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 |------|-------------|------------|
 | **Prescription Decoder & Medicine Explainer** | User pastes or uploads a prescription; explains each medicine (brand + generic), what it treats, dosage meaning (OD, BD, TDS, etc.), side effects, precautions, injection purpose. | `dosage_abbreviations.json`, `drug_reference.json` |
 | **Generic Alternative & Price Transparency Finder** | Detects active ingredient, suggests cheaper generics, shows price differences, flags overpricing (if user shares price), links Jan Aushadhi. | `medicine_price_reference.json` |
+| **Drug Interaction & Safety Checker** | User enters “I am taking X and Y. Safe?” — checks interaction severity, contraindications, allergy warnings, age restrictions, pregnancy safety. | `drug_interactions.json`, `drug_safety.json` (uses `medicine_price_reference.json` for brand→ingredient) |
 | **Health tips** | Returns cost-saving tips (generic medicines, prescription reuse, etc.). | `health_tips_sample.json`, `health_tips.json` |
 | **Medicine info** | Lookup by name: basic medicine info, alternatives, price range. | `medicines.json` |
 
@@ -28,6 +29,8 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 | Dosage abbreviations (OD, BD, TDS…) | JSON | `dosage_abbreviations.json` |
 | Drug reference (prescription decoder) | JSON | `drug_reference.json` |
 | Generic alternatives & price (NPPA-style, Jan Aushadhi) | JSON | `medicine_price_reference.json` |
+| Drug interactions (pairwise severity) | JSON | `drug_interactions.json` |
+| Drug safety (contraindications, allergy, age, pregnancy) | JSON | `drug_safety.json` |
 
 ## India-specific
 
@@ -42,5 +45,7 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 - **dosage_abbreviations.json** (Prescription Decoder): `"OD": "Once daily..."` (abbreviation → meaning). Add entries for OD, BD, TDS, QID, HS, SOS, AC, PC, etc.
 - **drug_reference.json** (Prescription Decoder): `name`, `generic_name`, `treats`, `dosage_notes`, `side_effects`, `precautions`, `injection_purpose`. One entry per drug; used to explain each medicine in a prescription.
 - **medicine_price_reference.json** (Generic Alternative & Price Finder): `brand_names`, `active_ingredient`, `strength_common`, `generic_alternatives` (name, typical_price_inr), `ceiling_price_inr`, `jan_aushadhi` (available, product_name, typical_price_inr, portal_url). Align ceiling with NPPA when available.
+- **drug_interactions.json** (Drug Interaction & Safety Checker): pairwise entries with `ingredient1`, `ingredient2`, `severity` (major/moderate/minor), `description`, `action`. Use canonical ingredient names (same as in drug_safety / medicine_price_reference).
+- **drug_safety.json** (Drug Interaction & Safety Checker): per-ingredient `ingredient`, `contraindications` (array), `allergy_warning`, `age_restrictions`, `pregnancy_safety`. One entry per active ingredient.
 
 When you add a new tool, add a row in **Tools and their data** and a schema line here. Add your own files and extend schemas as the product grows.

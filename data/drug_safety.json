@@ -1,0 +1,51 @@
+[
+  {
+    "ingredient": "Paracetamol",
+    "contraindications": ["Severe liver disease", "Severe kidney disease (dose adjustment needed)"],
+    "allergy_warning": "Paracetamol allergy is rare; if you had a reaction, avoid and inform doctor.",
+    "age_restrictions": "Safe in children at correct dose by weight; avoid in infants under 2 months without doctor advice.",
+    "pregnancy_safety": "Generally considered safe in pregnancy at recommended doses; discuss with doctor."
+  },
+  {
+    "ingredient": "Amoxicillin",
+    "contraindications": ["Previous severe allergic reaction to amoxicillin or penicillin"],
+    "allergy_warning": "Do not use if allergic to penicillin or other beta-lactam antibiotics. Cross-reactivity with cephalosporins possible.",
+    "age_restrictions": "Used in all ages; dose by weight in children. Consult doctor for infants.",
+    "pregnancy_safety": "Category B - generally considered safe; used commonly in pregnancy. Discuss with doctor."
+  },
+  {
+    "ingredient": "Cetirizine",
+    "contraindications": ["Severe kidney impairment (dose reduction may be needed)"],
+    "allergy_warning": "Rare allergy to cetirizine; if you had reaction to antihistamines, inform doctor.",
+    "age_restrictions": "Not recommended under 2 years without doctor advice; 2–5 years use lower dose.",
+    "pregnancy_safety": "Category B - limited data; use only if clearly needed. Discuss with doctor."
+  },
+  {
+    "ingredient": "Omeprazole",
+    "contraindications": ["Hypersensitivity to omeprazole or other PPIs"],
+    "allergy_warning": "If allergic to omeprazole, avoid other PPIs (pantoprazole, etc.) unless advised by doctor.",
+    "age_restrictions": "Used in adults and children over 1 year; dose varies. Consult doctor for long-term use in children.",
+    "pregnancy_safety": "Category C - use only if benefit outweighs risk. Discuss with doctor."
+  },
+  {
+    "ingredient": "Pantoprazole",
+    "contraindications": ["Hypersensitivity to pantoprazole or other PPIs"],
+    "allergy_warning": "If allergic to pantoprazole or other PPIs, inform doctor.",
+    "age_restrictions": "Used in adults and children (dose by weight); long-term use in children only under doctor supervision.",
+    "pregnancy_safety": "Category B - generally considered acceptable; discuss with doctor."
+  },
+  {
+    "ingredient": "Azithromycin",
+    "contraindications": ["Severe liver disease", "Known QT prolongation or certain heart rhythm disorders"],
+    "allergy_warning": "Do not use if allergic to azithromycin or other macrolides (e.g. erythromycin).",
+    "age_restrictions": "Used in children; dose by weight. Safe in infants for specific indications under doctor care.",
+    "pregnancy_safety": "Category B - generally considered acceptable when needed; discuss with doctor."
+  },
+  {
+    "ingredient": "Atorvastatin",
+    "contraindications": ["Active liver disease", "Pregnancy", "Breastfeeding"],
+    "allergy_warning": "Rare allergy; if you had muscle pain or weakness on another statin, inform doctor.",
+    "age_restrictions": "Used in adults and adolescents (e.g. 10+ years for familial hypercholesterolemia). Not for young children.",
+    "pregnancy_safety": "Contraindicated in pregnancy - stop before planning pregnancy. Do not use while breastfeeding."
+  }
+]

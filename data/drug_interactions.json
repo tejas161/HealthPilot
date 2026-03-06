@@ -1,0 +1,65 @@
+[
+  {
+    "ingredient1": "Paracetamol",
+    "ingredient2": "Warfarin",
+    "severity": "moderate",
+    "description": "Paracetamol may increase anticoagulant effect; risk of bleeding.",
+    "action": "Monitor INR if used together; discuss with doctor."
+  },
+  {
+    "ingredient1": "Amoxicillin",
+    "ingredient2": "Methotrexate",
+    "severity": "major",
+    "description": "Amoxicillin can increase methotrexate levels; risk of toxicity.",
+    "action": "Doctor may need to adjust dose or monitor; do not combine without medical supervision."
+  },
+  {
+    "ingredient1": "Amoxicillin",
+    "ingredient2": "Allopurinol",
+    "severity": "moderate",
+    "description": "Increased risk of rash when combined.",
+    "action": "Discuss with doctor; watch for skin reactions."
+  },
+  {
+    "ingredient1": "Omeprazole",
+    "ingredient2": "Clopidogrel",
+    "severity": "moderate",
+    "description": "Omeprazole may reduce effectiveness of clopidogrel (blood thinner).",
+    "action": "Discuss with doctor; alternative acid reducer may be considered."
+  },
+  {
+    "ingredient1": "Pantoprazole",
+    "ingredient2": "Clopidogrel",
+    "severity": "minor",
+    "description": "Less interaction than omeprazole with clopidogrel; may still discuss with doctor.",
+    "action": "Usually acceptable; confirm with doctor if on clopidogrel."
+  },
+  {
+    "ingredient1": "Cetirizine",
+    "ingredient2": "Loratadine",
+    "severity": "minor",
+    "description": "Both are antihistamines; taking both may increase drowsiness or dry mouth.",
+    "action": "Usually one antihistamine is enough; discuss with doctor."
+  },
+  {
+    "ingredient1": "Azithromycin",
+    "ingredient2": "Antacids",
+    "severity": "moderate",
+    "description": "Antacids (aluminium/magnesium) can reduce azithromycin absorption.",
+    "action": "Take azithromycin at least 1 hour before or 2 hours after antacids."
+  },
+  {
+    "ingredient1": "Atorvastatin",
+    "ingredient2": "Erythromycin",
+    "severity": "major",
+    "description": "Erythromycin can increase atorvastatin levels; risk of muscle side effects.",
+    "action": "Discuss with doctor; may need to avoid combination or adjust dose."
+  },
+  {
+    "ingredient1": "Atorvastatin",
+    "ingredient2": "Grapefruit",
+    "severity": "moderate",
+    "description": "Grapefruit juice can increase atorvastatin levels.",
+    "action": "Limit or avoid grapefruit juice while on atorvastatin; discuss with doctor."
+  }
+]

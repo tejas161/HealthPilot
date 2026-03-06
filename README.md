@@ -18,6 +18,7 @@ HealthPilot/
 │   ├── tools.py           # get_health_tips, get_medicine_info
 │   ├── prescription_decoder.py  # Prescription decoder & medicine explainer tool
 │   ├── generic_price_finder.py # Generic alternatives & price transparency (Jan Aushadhi)
+│   ├── drug_safety_checker.py   # Drug interaction & safety (contraindications, allergy, age, pregnancy)
 │   ├── runner_helper.py   # Run agent from Streamlit (Runner + InMemorySessionService)
 │   └── __init__.py
 ├── utils/
@@ -34,6 +35,8 @@ HealthPilot/
 │   ├── dosage_abbreviations.json  # OD, BD, TDS, etc.
 │   ├── drug_reference.json       # For prescription decoder (treats, side effects, etc.)
 │   ├── medicine_price_reference.json  # Generic alternatives, ceiling prices, Jan Aushadhi
+│   ├── drug_interactions.json  # Pairwise interactions (severity, description)
+│   ├── drug_safety.json        # Contraindications, allergy, age, pregnancy per ingredient
 │   ├── health_tips_sample.json
 │   └── (your JSON/CSV files)
 ├── .env                # GOOGLE_API_KEY (copy from .env.example)
@@ -88,11 +91,15 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 
 - **Generic Alternative & Price Transparency Finder**: Detects active ingredient from brand/generic name, suggests cheaper generics, shows price differences, flags overpricing (if user shares the price they paid vs ceiling/typical), and links Jan Aushadhi (PMBJP). Data: `data/medicine_price_reference.json`. Tool: `find_generic_alternatives(medicine_name, user_price_inr=None)`.
 
+- **Drug Interaction & Safety Checker**: User says e.g. “I am taking X and Y. Safe?” — agent checks interaction severity, contraindications, allergy warnings, age restrictions, pregnancy safety. Data: `data/drug_interactions.json`, `data/drug_safety.json`; uses `medicine_price_reference.json` to resolve brand names to ingredients. Tool: `check_drug_interaction_and_safety(medicine_list)`.
+
 ## Data
 
 - **Health tips**: Add or edit `data/health_tips.json` (see `data/health_tips_sample.json` for shape).
 - **Medicines**: Add `data/medicines.json` with fields like `name`, `generic_name`, `alternatives`, `price_range_inr`, etc., for the medicine lookup tool.
 - **Price transparency**: `data/medicine_price_reference.json` — `brand_names`, `active_ingredient`, `generic_alternatives`, `ceiling_price_inr`, `jan_aushadhi` (for generic/price finder tool). You can align ceiling with NPPA data when available.
+- **Drug interactions**: `data/drug_interactions.json` — pairwise `ingredient1`, `ingredient2`, `severity`, `description`, `action`.
+- **Drug safety**: `data/drug_safety.json` — per ingredient: `contraindications`, `allergy_warning`, `age_restrictions`, `pregnancy_safety` (for interaction & safety checker).
 
 ## Guardrails (safety)
 

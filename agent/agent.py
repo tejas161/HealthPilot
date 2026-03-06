@@ -7,6 +7,7 @@ from google.adk.agents import Agent
 
 from agent.drug_safety_checker import check_drug_interaction_and_safety
 from agent.generic_price_finder import find_generic_alternatives
+from agent.hospital_cost_tool import find_hospitals, get_treatment_cost_estimate
 from agent.prescription_decoder import decode_prescription
 from agent.tools import get_health_tips, get_medicine_info
 from guardrails.instructions import get_guardrail_instructions
@@ -46,8 +47,19 @@ root_agent = Agent(
         "Use check_drug_interaction_and_safety when the user says they are taking multiple medicines and asks if it's safe, "
         "or asks about interactions, contraindications, allergy warnings, age restrictions, or pregnancy safety. "
         "Pass the medicine list as a comma- or 'and'-separated string. Inform only — always tell them to discuss with doctor or pharmacist. "
+        "Use find_hospitals when the user asks for hospitals by disease, city, government vs private, or specialization. "
+        "Use get_treatment_cost_estimate when the user asks for treatment cost, hospital cost, or cost range for a condition; "
+        "always give ranges only with disclaimer — never exact cost. "
         "Answer in the same language the user uses (e.g. Hindi, English).\n\n"
         + get_guardrail_instructions()
     ),
-    tools=[get_health_tips, get_medicine_info, decode_prescription, find_generic_alternatives, check_drug_interaction_and_safety],
+    tools=[
+        get_health_tips,
+        get_medicine_info,
+        decode_prescription,
+        find_generic_alternatives,
+        check_drug_interaction_and_safety,
+        find_hospitals,
+        get_treatment_cost_estimate,
+    ],
 )

@@ -1,0 +1,102 @@
+[
+  {
+    "name": "AIIMS Delhi",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "type": "government",
+    "specializations": ["Cardiology", "Neurology", "Oncology", "Orthopedics", "General Medicine", "Pediatrics", "Emergency"],
+    "diseases_handled": ["Heart disease", "Cancer", "Stroke", "Fractures", "Infections", "Diabetes", "Hypertension"],
+    "pmjay_empaneled": true,
+    "address": "Ansari Nagar, New Delhi"
+  },
+  {
+    "name": "Safdarjung Hospital",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "type": "government",
+    "specializations": ["General Medicine", "Surgery", "Pediatrics", "Orthopedics", "Gynecology"],
+    "diseases_handled": ["Infections", "Fractures", "Pregnancy", "General ailments"],
+    "pmjay_empaneled": true,
+    "address": "Safdarjung Enclave, New Delhi"
+  },
+  {
+    "name": "Lok Nayak Hospital",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "type": "government",
+    "specializations": ["General Medicine", "Surgery", "Emergency", "TB & Chest"],
+    "diseases_handled": ["TB", "Respiratory", "Infections", "General surgery"],
+    "pmjay_empaneled": true,
+    "address": "Jawaharlal Nehru Marg, New Delhi"
+  },
+  {
+    "name": "Apollo Hospital (Delhi)",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "type": "private",
+    "specializations": ["Cardiology", "Oncology", "Neurology", "Orthopedics", "Transplant", "General Medicine"],
+    "diseases_handled": ["Heart disease", "Cancer", "Kidney disease", "Liver disease", "Bone & joint"],
+    "pmjay_empaneled": true,
+    "address": "Sarita Vihar, New Delhi"
+  },
+  {
+    "name": "Max Super Speciality Hospital (Saket)",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "type": "private",
+    "specializations": ["Cardiology", "Oncology", "Neurology", "Orthopedics", "General Medicine"],
+    "diseases_handled": ["Heart disease", "Cancer", "Stroke", "Fractures", "Diabetes"],
+    "pmjay_empaneled": false,
+    "address": "Saket, New Delhi"
+  },
+  {
+    "name": "PGIMER Chandigarh",
+    "city": "Chandigarh",
+    "state": "Chandigarh",
+    "type": "government",
+    "specializations": ["Cardiology", "Neurology", "Pediatrics", "General Medicine", "Surgery"],
+    "diseases_handled": ["Heart disease", "Neurological", "Child health", "Infections"],
+    "pmjay_empaneled": true,
+    "address": "Sector 12, Chandigarh"
+  },
+  {
+    "name": "CMC Vellore",
+    "city": "Vellore",
+    "state": "Tamil Nadu",
+    "type": "private",
+    "specializations": ["Cardiology", "Neurology", "Oncology", "Orthopedics", "General Medicine", "Pediatrics"],
+    "diseases_handled": ["Heart disease", "Cancer", "Stroke", "Fractures", "Infections"],
+    "pmjay_empaneled": true,
+    "address": "Ida Scudder Road, Vellore"
+  },
+  {
+    "name": "KEM Hospital Mumbai",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "type": "government",
+    "specializations": ["General Medicine", "Surgery", "Pediatrics", "Orthopedics", "Emergency"],
+    "diseases_handled": ["Infections", "Fractures", "Child health", "General ailments"],
+    "pmjay_empaneled": true,
+    "address": "Parel, Mumbai"
+  },
+  {
+    "name": "Lilavati Hospital",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "type": "private",
+    "specializations": ["Cardiology", "Oncology", "Orthopedics", "General Medicine"],
+    "diseases_handled": ["Heart disease", "Cancer", "Bone & joint", "Diabetes"],
+    "pmjay_empaneled": false,
+    "address": "Bandra West, Mumbai"
+  },
+  {
+    "name": "Victoria Hospital Bangalore",
+    "city": "Bengaluru",
+    "state": "Karnataka",
+    "type": "government",
+    "specializations": ["General Medicine", "Surgery", "Orthopedics", "Emergency"],
+    "diseases_handled": ["Infections", "Fractures", "General ailments"],
+    "pmjay_empaneled": true,
+    "address": "Fort, Bengaluru"
+  }
+]

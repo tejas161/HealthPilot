@@ -13,6 +13,7 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 | **Prescription Decoder & Medicine Explainer** | User pastes or uploads a prescription; explains each medicine (brand + generic), what it treats, dosage meaning (OD, BD, TDS, etc.), side effects, precautions, injection purpose. | `dosage_abbreviations.json`, `drug_reference.json` |
 | **Generic Alternative & Price Transparency Finder** | Detects active ingredient, suggests cheaper generics, shows price differences, flags overpricing (if user shares price), links Jan Aushadhi. | `medicine_price_reference.json` |
 | **Drug Interaction & Safety Checker** | User enters “I am taking X and Y. Safe?” — checks interaction severity, contraindications, allergy warnings, age restrictions, pregnancy safety. | `drug_interactions.json`, `drug_safety.json` (uses `medicine_price_reference.json` for brand→ingredient) |
+| **Hospital Finder + Treatment Cost Estimator** | **A) Hospital Locator:** filter by disease, government/private, city, specialization. **B) Treatment Cost Estimator:** cost ranges only (consultation, diagnostics, medicines, admission) with disclaimer; never exact cost. | `hospitals.json`, `treatment_cost_ranges.json` |
 | **Health tips** | Returns cost-saving tips (generic medicines, prescription reuse, etc.). | `health_tips_sample.json`, `health_tips.json` |
 | **Medicine info** | Lookup by name: basic medicine info, alternatives, price range. | `medicines.json` |
 
@@ -31,6 +32,8 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 | Generic alternatives & price (NPPA-style, Jan Aushadhi) | JSON | `medicine_price_reference.json` |
 | Drug interactions (pairwise severity) | JSON | `drug_interactions.json` |
 | Drug safety (contraindications, allergy, age, pregnancy) | JSON | `drug_safety.json` |
+| Hospitals (locator: city, type, specialization, disease, PMJAY) | JSON | `hospitals.json` |
+| Treatment cost ranges (consultation, diagnostics, medicines, admission) | JSON | `treatment_cost_ranges.json` |
 
 ## India-specific
 
@@ -47,5 +50,7 @@ Each agent tool is listed with the data files it reads. Keep these files updated
 - **medicine_price_reference.json** (Generic Alternative & Price Finder): `brand_names`, `active_ingredient`, `strength_common`, `generic_alternatives` (name, typical_price_inr), `ceiling_price_inr`, `jan_aushadhi` (available, product_name, typical_price_inr, portal_url). Align ceiling with NPPA when available.
 - **drug_interactions.json** (Drug Interaction & Safety Checker): pairwise entries with `ingredient1`, `ingredient2`, `severity` (major/moderate/minor), `description`, `action`. Use canonical ingredient names (same as in drug_safety / medicine_price_reference).
 - **drug_safety.json** (Drug Interaction & Safety Checker): per-ingredient `ingredient`, `contraindications` (array), `allergy_warning`, `age_restrictions`, `pregnancy_safety`. One entry per active ingredient.
+- **hospitals.json** (Hospital Locator): `name`, `city`, `state`, `type` (government/private), `specializations` (array), `diseases_handled` (array), `pmjay_empaneled`, `address`. Can align with government/PMJAY datasets.
+- **treatment_cost_ranges.json** (Treatment Cost Estimator): `disease_or_category`, `hospital_type`, `city_tier`, `*_min_inr` / `*_max_inr` for consultation, diagnostics, medicines, admission; `notes`. Always ranges only; add disclaimer in tool.
 
 When you add a new tool, add a row in **Tools and their data** and a schema line here. Add your own files and extend schemas as the product grows.

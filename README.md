@@ -19,6 +19,7 @@ HealthPilot/
 │   ├── prescription_decoder.py  # Prescription decoder & medicine explainer tool
 │   ├── generic_price_finder.py # Generic alternatives & price transparency (Jan Aushadhi)
 │   ├── drug_safety_checker.py   # Drug interaction & safety (contraindications, allergy, age, pregnancy)
+│   ├── hospital_cost_tool.py    # Hospital Locator + Treatment Cost Estimator (ranges only)
 │   ├── runner_helper.py   # Run agent from Streamlit (Runner + InMemorySessionService)
 │   └── __init__.py
 ├── utils/
@@ -37,6 +38,8 @@ HealthPilot/
 │   ├── medicine_price_reference.json  # Generic alternatives, ceiling prices, Jan Aushadhi
 │   ├── drug_interactions.json  # Pairwise interactions (severity, description)
 │   ├── drug_safety.json        # Contraindications, allergy, age, pregnancy per ingredient
+│   ├── hospitals.json         # Hospital locator (city, type, specialization, PMJAY)
+│   ├── treatment_cost_ranges.json  # Cost ranges: consultation, diagnostics, medicines, admission
 │   ├── health_tips_sample.json
 │   └── (your JSON/CSV files)
 ├── .env                # GOOGLE_API_KEY (copy from .env.example)
@@ -93,6 +96,8 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 
 - **Drug Interaction & Safety Checker**: User says e.g. “I am taking X and Y. Safe?” — agent checks interaction severity, contraindications, allergy warnings, age restrictions, pregnancy safety. Data: `data/drug_interactions.json`, `data/drug_safety.json`; uses `medicine_price_reference.json` to resolve brand names to ingredients. Tool: `check_drug_interaction_and_safety(medicine_list)`.
 
+- **Hospital Finder + Treatment Cost Estimator** (two sub-modules): **A) Hospital Locator** — filter by disease, government/private, city, specialization; **B) Treatment Cost Estimator** — cost ranges only (consultation, diagnostics, medicines, admission) with disclaimer; never exact cost. Data: `data/hospitals.json`, `data/treatment_cost_ranges.json`. Tools: `find_hospitals(disease, city, hospital_type, specialization)`, `get_treatment_cost_estimate(disease_or_procedure, city, hospital_type)`.
+
 ## Data
 
 - **Health tips**: Add or edit `data/health_tips.json` (see `data/health_tips_sample.json` for shape).
@@ -100,6 +105,8 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 - **Price transparency**: `data/medicine_price_reference.json` — `brand_names`, `active_ingredient`, `generic_alternatives`, `ceiling_price_inr`, `jan_aushadhi` (for generic/price finder tool). You can align ceiling with NPPA data when available.
 - **Drug interactions**: `data/drug_interactions.json` — pairwise `ingredient1`, `ingredient2`, `severity`, `description`, `action`.
 - **Drug safety**: `data/drug_safety.json` — per ingredient: `contraindications`, `allergy_warning`, `age_restrictions`, `pregnancy_safety` (for interaction & safety checker).
+- **Hospitals**: `data/hospitals.json` — `name`, `city`, `state`, `type` (government/private), `specializations`, `diseases_handled`, `pmjay_empaneled` (for Hospital Locator). Can align with government/PMJAY datasets.
+- **Treatment cost ranges**: `data/treatment_cost_ranges.json` — ranges for consultation, diagnostics, medicines, admission by `disease_or_category`, `hospital_type`, `city_tier`. Never give exact cost — tool returns ranges with disclaimer.
 
 ## Guardrails (safety)
 

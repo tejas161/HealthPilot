@@ -2,6 +2,8 @@
 
 HealthPilot is an AI-powered health advisor focused on **reducing healthcare costs** for users in **India**. It helps with cost-saving tips, medicine info, alternatives, and transparent health guidance — making healthcare more affordable and accessible.
 
+We are also actively developing it to handle billing and maintenance of infrastructure using AI
+
 ## Tech stack
 
 - **UI**: Streamlit (chat interface)

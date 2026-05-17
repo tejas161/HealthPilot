@@ -2,7 +2,14 @@
 
 HealthPilot is an AI-powered health advisor focused on **reducing healthcare costs** for users in **India**. It helps with cost-saving tips, medicine info, alternatives, and transparent health guidance — making healthcare more affordable and accessible.
 
-We are also actively developing it to handle billing and maintenance of infrastructure using AI
+## Features
+
+- 💊 **Prescription Decoder**: Upload or paste prescriptions to understand medicines, dosages, and side effects
+- 💰 **Generic Alternative Finder**: Find cheaper alternatives and compare prices with Jan Aushadhi options  
+- ⚠️ **Drug Safety Checker**: Check interactions, contraindications, and safety warnings for medicines
+- 🏥 **Hospital Finder**: Locate hospitals by specialization, city, and type (government/private)
+- 📊 **Treatment Cost Estimator**: Get cost ranges for consultations, diagnostics, and treatments
+- 💡 **Health Tips**: Cost-saving advice and medicine guidance
 
 ## Tech stack
 
@@ -44,6 +51,7 @@ HealthPilot/
 │   ├── treatment_cost_ranges.json  # Cost ranges: consultation, diagnostics, medicines, admission
 │   ├── health_tips_sample.json
 │   └── (your JSON/CSV files)
+├── docs/               # Documentation (placeholder)
 ├── .env                # GOOGLE_API_KEY (copy from .env.example)
 ├── .env.example
 ├── requirements.txt
@@ -100,19 +108,24 @@ Open the URL shown in the terminal (e.g. http://localhost:8501) and chat with He
 
 - **Hospital Finder + Treatment Cost Estimator** (two sub-modules): **A) Hospital Locator** — filter by disease, government/private, city, specialization; **B) Treatment Cost Estimator** — cost ranges only (consultation, diagnostics, medicines, admission) with disclaimer; never exact cost. Data: `data/hospitals.json`, `data/treatment_cost_ranges.json`. Tools: `find_hospitals(disease, city, hospital_type, specialization)`, `get_treatment_cost_estimate(disease_or_procedure, city, hospital_type)`.
 
-## Data
+## Data & Customization
 
-- **Health tips**: Add or edit `data/health_tips.json` (see `data/health_tips_sample.json` for shape).
-- **Medicines**: Add `data/medicines.json` with fields like `name`, `generic_name`, `alternatives`, `price_range_inr`, etc., for the medicine lookup tool.
-- **Price transparency**: `data/medicine_price_reference.json` — `brand_names`, `active_ingredient`, `generic_alternatives`, `ceiling_price_inr`, `jan_aushadhi` (for generic/price finder tool). You can align ceiling with NPPA data when available.
-- **Drug interactions**: `data/drug_interactions.json` — pairwise `ingredient1`, `ingredient2`, `severity`, `description`, `action`.
-- **Drug safety**: `data/drug_safety.json` — per ingredient: `contraindications`, `allergy_warning`, `age_restrictions`, `pregnancy_safety` (for interaction & safety checker).
-- **Hospitals**: `data/hospitals.json` — `name`, `city`, `state`, `type` (government/private), `specializations`, `diseases_handled`, `pmjay_empaneled` (for Hospital Locator). Can align with government/PMJAY datasets.
-- **Treatment cost ranges**: `data/treatment_cost_ranges.json` — ranges for consultation, diagnostics, medicines, admission by `disease_or_category`, `hospital_type`, `city_tier`. Never give exact cost — tool returns ranges with disclaimer.
+All agent data is stored in the `data/` folder. You can customize or extend these files to improve responses:
 
-## Guardrails (safety)
+- **Health tips**: `data/health_tips_sample.json` - Add cost-saving tips and advice
+- **Medicine prices**: `data/medicine_price_reference.json` - Brand names, generics, Jan Aushadhi alternatives  
+- **Drug interactions**: `data/drug_interactions.json` - Medicine interaction warnings and severity
+- **Drug safety**: `data/drug_safety.json` - Contraindications, allergy warnings, age/pregnancy restrictions
+- **Hospitals**: `data/hospitals.json` - Hospital directory with specializations and PMJAY status
+- **Treatment costs**: `data/treatment_cost_ranges.json` - Cost ranges by procedure and hospital type
+- **Drug reference**: `data/drug_reference.json` - Medicine explanations for prescription decoder
+- **Dosage abbreviations**: `data/dosage_abbreviations.json` - Medical abbreviation meanings (OD, BD, etc.)
 
-HealthPilot is a **sensitive, health-related** product. Guardrails keep all user-facing information cautious and in-scope:
+See `data/README.md` for detailed schemas and formatting guidelines.
+
+## Guardrails & Safety
+
+HealthPilot is a **sensitive, health-related** product with strict safety measures. Guardrails ensure all information is cautious and within scope:
 
 - **Scope**: The agent is for cost-saving and general medicine-awareness only. It does not diagnose, prescribe, or give emergency advice.
 - **Agent instructions**: The agent’s system prompt includes strict rules (in `guardrails/instructions.py`): no diagnosis, no “you should take X”, no dosage advice; always direct users to doctors/pharmacists for personal decisions.

@@ -17,6 +17,10 @@ HealthPilot is an AI-powered health advisor focused on **reducing healthcare cos
 - **Agent**: Google ADK (Agent Development Kit), Gemini 2.0 Flash
 - **Data**: Local JSON (and other formats) in the `data/` folder
 
+
+## AI Skills
+- learn and explore about new ai skills
+
 ## Project structure
 
 ```
